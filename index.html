@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grupo Labmedic – Periódico de Recebíveis</title>
+<style>
+:root{--bg:#f2f6fa;--cd:#fff;--tx:#0f1f33;--mu:#5b6b80;--bd:#e0e8f0;--pr:#0a7c86;--nv:#0b3d6b;--ok:#139a63;--wa:#e09112;--er:#d64545;--in:#2b6cd4;--sh:0 4px 18px rgba(15,31,51,.08);--hd:rgba(255,255,255,.88);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a121d;--cd:#121d2c;--tx:#e8eef6;--mu:#93a4b8;--bd:#223348;--pr:#2bb6c1;--nv:#6fa8e8;--ok:#34c88a;--wa:#f0b04a;--er:#ef7070;--in:#6aa2f5;--sh:0 4px 18px rgba(0,0,0,.4);--hd:rgba(10,18,29,.88)}}
+:root[data-theme="dark"]{--bg:#0a121d;--cd:#121d2c;--tx:#e8eef6;--mu:#93a4b8;--bd:#223348;--pr:#2bb6c1;--nv:#6fa8e8;--ok:#34c88a;--wa:#f0b04a;--er:#ef7070;--in:#6aa2f5;--sh:0 4px 18px rgba(0,0,0,.4);--hd:rgba(10,18,29,.88)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hd);z-index:30}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--hd);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:12px;padding:10px 20px;flex-wrap:wrap}
+.logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--nv),var(--pr));display:grid;place-items:center;color:#fff;font-weight:800;font-size:22px}
+.brand{line-height:1.15}.brand b{font-size:17px;letter-spacing:.2px}.brand span{display:block;font-size:12px;color:var(--pr);font-weight:600;letter-spacing:.6px;text-transform:uppercase}
+.sp{flex:1}
+button,.btn{font:inherit;border:1px solid var(--bd);background:var(--cd);color:var(--tx);padding:8px 14px;border-radius:10px;cursor:pointer;font-weight:600;display:inline-flex;gap:6px;align-items:center}
+button:hover{border-color:var(--pr)}button:disabled{opacity:.45;cursor:not-allowed}
+.pri{background:linear-gradient(135deg,var(--nv),var(--pr));color:#fff;border:0}.pri:hover{filter:brightness(1.1)}
+.big{padding:14px 26px;font-size:16px;border-radius:12px}
+main{max-width:1320px;margin:0 auto;padding:20px}
+.hero{position:relative;border-radius:22px;overflow:hidden;min-height:430px;box-shadow:var(--sh);color:#fff;background:#0b3d6b}
+.sl{position:absolute;inset:0;opacity:0;transition:opacity .9s}.sl.on{opacity:1}.sl svg{width:100%;height:100%;display:block}
+.ov{position:relative;z-index:2;padding:48px 44px;max-width:640px;display:flex;flex-direction:column;gap:14px;min-height:430px;justify-content:center;background:linear-gradient(90deg,rgba(6,28,52,.88),rgba(6,28,52,.55) 70%,transparent)}
+.ov small{letter-spacing:2px;font-weight:700;text-transform:uppercase;color:#7fe3ec}
+.ov h1{margin:0;font-size:clamp(28px,4.4vw,46px);line-height:1.08}.ov h1 em{font-style:normal;color:#7fe3ec;display:block}
+.ov p{margin:0;opacity:.88;max-width:48ch}.ov .hint{font-size:12.5px;opacity:.7}
+.dots{position:absolute;bottom:14px;right:20px;z-index:3;display:flex;gap:7px}.dots i{width:9px;height:9px;border-radius:9px;background:#fff6;cursor:pointer}.dots i.on{background:#fff;width:24px}
+.nav{position:absolute;top:50%;z-index:3;width:38px;height:38px;border-radius:50%;padding:0;justify-content:center;background:#0006;color:#fff;border:0}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:18px}
+.feat div{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:16px}.feat b{color:var(--pr)}.feat p{margin:4px 0 0;color:var(--mu);font-size:13.5px}
+.drag{outline:3px dashed var(--pr);outline-offset:-10px}
+.top{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.top h2{margin:0;font-size:22px}.mu{color:var(--mu);font-size:13px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border-radius:999px;padding:7px 15px;font-size:13.5px}.tab.on{background:var(--nv);color:#fff;border-color:var(--nv)}
+:root[data-theme="dark"] .tab.on{color:#08121f}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.k{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:16px 18px;box-shadow:var(--sh);border-top:4px solid var(--c,var(--pr))}
+.k label{font-size:12px;text-transform:uppercase;letter-spacing:.7px;color:var(--mu);font-weight:700}.k strong{display:block;font-size:24px;margin:4px 0 2px;color:var(--c,var(--tx));font-variant-numeric:tabular-nums}.k span{font-size:12.5px;color:var(--mu)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:14px;margin-top:14px}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:18px;box-shadow:var(--sh);min-width:0}
+.card h3{margin:0 0 14px;font-size:15px}
+.mc{display:flex;gap:8px;align-items:flex-end;height:230px;padding-top:6px}
+.mc .c{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;font-size:11px;color:var(--mu);min-width:0}
+.mc .b{width:100%;max-width:64px;display:flex;flex-direction:column-reverse;border-radius:7px 7px 0 0;overflow:hidden}
+.lg{display:flex;gap:14px;font-size:12px;color:var(--mu);margin-top:10px;flex-wrap:wrap}.lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
+.hb{display:grid;grid-template-columns:minmax(90px,1.3fr) 2fr auto;gap:8px 10px;align-items:center;font-size:13px}
+.hb .l{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hb .t{height:10px;background:var(--bd);border-radius:9px;overflow:hidden}.hb .t i{display:block;height:100%;border-radius:9px;background:var(--c,var(--pr))}.hb .v{font-variant-numeric:tabular-nums;font-weight:600}
+.emps{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.emp{cursor:pointer}.emp:hover{border-color:var(--pr)}.emp h4{margin:0}.pg{height:8px;background:var(--bd);border-radius:9px;overflow:hidden;margin:12px 0 8px}.pg i{display:block;height:100%;background:var(--ok)}
+.er{display:flex;justify-content:space-between;font-size:13px;padding:2px 0}.er b{font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;max-height:560px;border:1px solid var(--bd);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:13px}th{position:sticky;top:0;background:var(--nv);color:#fff;text-align:left;padding:9px 10px;white-space:nowrap}
+:root[data-theme="dark"] th{color:#08121f}
+td{padding:8px 10px;border-top:1px solid var(--bd);white-space:nowrap}tr:hover td{background:color-mix(in srgb,var(--pr) 8%,transparent)}.r{text-align:right;font-variant-numeric:tabular-nums}
+.ch{padding:2px 10px;border-radius:999px;font-size:12px;font-weight:700;color:#fff}.s0{background:var(--ok)}.s1{background:var(--er)}.s2{background:var(--in)}
+input,select{font:inherit;padding:8px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--cd);color:var(--tx)}.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.fg label,.fg .lb{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--mu);font-weight:600}.fg input,.fg select{width:100%;min-width:0}.ms{position:relative}.msb{width:100%;justify-content:space-between;font-weight:500;overflow:hidden;white-space:nowrap}.msb span:first-child{overflow:hidden;text-overflow:ellipsis}.mp{position:absolute;z-index:15;top:100%;left:0;min-width:100%;width:max-content;max-width:340px;max-height:290px;overflow:auto;margin-top:4px;background:var(--cd);border:1px solid var(--bd);border-radius:12px;box-shadow:var(--sh);padding:8px}.mp .ma{display:flex;gap:6px;margin-bottom:6px}.mp .ma button{padding:4px 10px;font-size:12px}.mp label{display:flex;flex-direction:row;align-items:center;gap:8px;font-size:13px;color:var(--tx);font-weight:500;padding:4px 2px;cursor:pointer}.mp input{width:auto}.fx{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:12px;flex-wrap:wrap}.fx span{font-size:12.5px;color:var(--mu)}
+.md{position:fixed;inset:0;background:#000a;z-index:50;display:flex;align-items:center;justify-content:center;padding:18px}.md>div{background:var(--cd);border-radius:16px;width:min(1200px,100%);height:min(88vh,100%);display:flex;flex-direction:column;overflow:hidden}
+.md header{position:static;border:0}.md iframe{flex:1;border:0;background:#777}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--nv);color:#fff;padding:10px 18px;border-radius:12px;z-index:60;box-shadow:var(--sh)}
+.th{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.th h3{margin:0}.th button{padding:6px 12px;font-size:13px}.ck{width:36px;text-align:center;padding-left:6px;padding-right:6px}.ck input{width:16px;height:16px;padding:0;margin:0;cursor:pointer;accent-color:var(--pr);vertical-align:middle}tr.sel td{background:color-mix(in srgb,var(--pr) 14%,transparent)}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.ov{padding:28px 22px}}
+.seg{display:inline-flex;border:1px solid var(--bd);border-radius:10px;overflow:hidden;background:var(--cd)}
+.th .seg button{border:0;border-radius:0;padding:6px 12px;font-size:13px;background:transparent;color:var(--tx)}
+.th .seg button+button{border-left:1px solid var(--bd)}
+.th .seg button.on{background:linear-gradient(135deg,var(--nv),var(--pr));color:#fff}
+.th .seg button b{background:rgba(127,127,127,.25);border-radius:999px;padding:0 7px;font-size:12px;margin-left:2px}
+.th .seg button.on b{background:rgba(255,255,255,.28)}
+.vnote{display:block;margin:-6px 0 10px;font-size:13px;color:var(--mu)}
+</style></head>
+<body>
+<header>
+ <div class="logo">L</div>
+ <div class="brand"><b>Grupo Labmedic</b><span>Periódico de Recebíveis</span></div>
+ <div class="sp"></div>
+ <button id="bImp" class="pri">Importar planilha</button>
+ <button id="bPdf" disabled>Visualizar PDF</button>
+ <button id="bXls" disabled>Exportar Excel</button>
+ <button id="bTh" title="Alternar tema claro/escuro">◐ Tema</button>
+ <input id="fi" type="file" accept=".xlsx,.xls" multiple hidden>
+</header>
+<main>
+<section id="land">
+ <div class="hero" id="hero">
+  <div id="slides"></div>
+  <div class="ov">
+   <small>Grupo Labmedic</small>
+   <h1>Grupo Labmedic – <em>Periódico de Recebíveis</em></h1>
+   <p>Acompanhe títulos recebidos e a receber, vencimentos, inadimplência e a posição de cada empresa do grupo em um painel único.</p>
+   <div><button class="pri big" id="bImp2">Importar planilha base</button></div>
+   <span class="hint">Aceita o relatório FLUXIS “CAR – Recebimentos por Período” (.xlsx). Você também pode arrastar o arquivo para esta página.</span>
+  </div>
+  <button class="nav" style="left:12px" id="pv">‹</button><button class="nav" style="right:12px" id="nx">›</button>
+  <div class="dots" id="dots"></div>
+ </div>
+ <div class="feat">
+  <div><b>Painel completo</b><p>Indicadores de previsto, recebido, a receber e em atraso, com gráficos por mês, forma de recebimento e cliente.</p></div>
+  <div><b>Multiempresa</b><p>Cada aba ou arquivo importado vira uma empresa, com resumo individual e visão consolidada.</p></div>
+  <div><b>PDF e Excel</b><p>Relatório A4 horizontal para visualizar e planilha formatada com todos os títulos, linha a linha.</p></div>
+ </div>
+</section>
+<section id="dash" hidden>
+ <div class="top"><div><h2 id="ttl"></h2><div class="mu" id="sub"></div></div></div>
+ <div class="tabs" id="tabs"></div>
+ <div class="card" id="fbar" style="margin-bottom:14px"><h3>Filtros de pesquisa <span class="mu">· valem para o painel, o PDF e o Excel</span></h3><div class="fg"><label>Busca<input id="f_q" placeholder="Cliente, CNPJ, documento, vendedor, observação…"></label><label>Empresa<select id="f_emp"></select></label><div class="lb">Situação<div class="ms" id="f_st"></div></div><label>Vencimento de<input type="date" id="f_de"></label><label>Vencimento até<input type="date" id="f_ate"></label><label>Quitação de<input type="date" id="f_qde"></label><label>Quitação até<input type="date" id="f_qate"></label><div class="lb">Forma de recebimento<div class="ms" id="f_tr"></div></div><div class="lb">Tipo contábil<div class="ms" id="f_tc"></div></div><div class="lb">Vendedor<div class="ms" id="f_vd"></div></div><div class="lb">Banco / C/C<div class="ms" id="f_bc"></div></div></div><div class="fx"><span id="fcount"></span><button id="fclr">Limpar filtros</button></div></div>
+ <div class="kpis" id="kpis"></div>
+ <div class="grid" id="chs"></div>
+ <div id="empsec" style="margin-top:14px"></div>
+ <div class="card" style="margin-top:14px">
+  <div class="th"><h3>Títulos – detalhamento linha a linha</h3><span class="sp"></span><span class="mu" id="selN"></span><div class="seg" id="vw" role="group" aria-label="Exibição dos títulos"><button type="button" data-v="all" class="on" title="Mostrar os títulos que atendem aos filtros atuais">Filtrados</button><button type="button" data-v="sel" title="Mostrar todos os títulos marcados, independentemente dos filtros">Marcados <b id="vwN">0</b></button></div><button id="selClr" disabled>Limpar seleção</button><button id="sPdf" class="pri" disabled title="Visualizar PDF dos títulos selecionados">Visualizar PDF</button><button id="sXls" disabled title="Exportar os títulos selecionados para Excel">Exportar Excel</button></div>
+  <span class="vnote" id="vnote" hidden></span>
+  <div class="tw"><table><thead><tr><th class="ck"><input type="checkbox" id="ckAll" title="Selecionar todos os títulos listados"></th><th>Emissão</th><th>Vencimento</th><th>Cliente</th><th class="r">Previsto</th><th>Situação</th><th>Documento</th><th>Parc.</th><th>Forma</th><th>Tipo contábil</th><th>Vendedor</th><th class="r">Recebido</th><th>Data de quitação</th></tr></thead><tbody id="tb"></tbody></table></div>
+  <div class="mu" id="tf" style="margin-top:8px"></div>
+ </div>
+</section>
+</main>
+<div id="pdfm" class="md" hidden><div><header><b id="pdfT">Pré-visualização do PDF · A4 horizontal</b><div class="sp"></div><button class="pri" id="pdfDl">Baixar PDF</button><button id="pdfX">Fechar</button></header><iframe id="pdfF" title="PDF"></iframe></div></div>
+<div id="toast" hidden></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),brl=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}),pc=n=>(n*100).toFixed(1).replace('.',',')+'%';
+const dBR=i=>i?i.split('-').reverse().join('/'):'—',esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const MS=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'],CN=/^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
+const cmp=n=>n>=1e6?(n/1e6).toFixed(2).replace('.',',')+' mi':n>=1e3?Math.round(n/1e3)+' mil':Math.round(n)+'';
+let D=null,sel='ALL';
+function toast(t){const e=$('#toast');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>e.hidden=true,3500)}
+/* ---------- tema ---------- */
+(function(){let t;try{t=localStorage.getItem('lm-th')}catch(e){}if(t)document.documentElement.dataset.theme=t;
+$('#bTh').onclick=()=>{const dk=(document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'))==='dark',n=dk?'light':'dark';document.documentElement.dataset.theme=n;try{localStorage.setItem('lm-th',n)}catch(e){}}})();
+/* ---------- carrossel ---------- */
+const SV=(a,b,body)=>`<svg viewBox="0 0 800 430" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g${a}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="800" height="430" fill="url(#g${a})"/><g fill="none" stroke="#fff" stroke-opacity=".08"><circle cx="700" cy="60" r="150"/><circle cx="700" cy="60" r="220"/><circle cx="120" cy="420" r="160"/></g>${body}</svg>`;
+const SLIDES=[
+SV('#0b3d6b','#0a7c86',`<g transform="translate(520 70)" fill="#fff" fill-opacity=".92"><rect x="0" y="270" width="190" height="16" rx="6"/><rect x="95" y="90" width="18" height="190" rx="6"/><path d="M104 100a95 95 0 0 1 80 150" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round"/><g transform="rotate(28 70 70)"><rect x="40" y="0" width="34" height="140" rx="10"/><rect x="34" y="120" width="46" height="22" rx="6" fill="#7fe3ec"/></g><circle cx="30" cy="250" r="26" fill="#7fe3ec"/></g><g fill="#7fe3ec" fill-opacity=".75"><circle cx="420" cy="110" r="9"/><circle cx="455" cy="150" r="6"/><circle cx="395" cy="170" r="5"/></g><g stroke="#7fe3ec" stroke-opacity=".5" stroke-width="2"><path d="M420 110l35 40M420 110l-25 60"/></g>`),
+SV('#0a7c86','#0b3d6b',`<g transform="translate(470 80)"><rect width="270" height="190" rx="18" fill="#fff" fill-opacity=".95"/><rect x="14" y="14" width="242" height="162" rx="10" fill="#08273f"/><path d="M24 100h50l14-50 22 100 22-80 14 30h100" fill="none" stroke="#5df0a8" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><rect x="100" y="190" width="70" height="26" fill="#fff" fill-opacity=".9"/><rect x="60" y="216" width="150" height="12" rx="6" fill="#fff"/></g><g fill="#fff" transform="translate(380 300)"><rect x="18" width="24" height="60" rx="5"/><rect y="18" width="60" height="24" rx="5"/></g>`),
+SV('#123c69','#139a63',`<g transform="translate(470 80)"><g fill="#fff" fill-opacity=".92"><rect x="0" y="190" width="46" height="70" rx="6"/><rect x="66" y="150" width="46" height="110" rx="6"/><rect x="132" y="100" width="46" height="160" rx="6"/><rect x="198" y="40" width="46" height="220" rx="6" fill="#7fe3ec"/></g><path d="M10 150L90 100l60-30 90-60" fill="none" stroke="#ffd166" stroke-width="6" stroke-linecap="round"/><path d="M215 5l30 2-8 28z" fill="#ffd166"/></g><g transform="translate(400 300)"><circle r="30" fill="#ffd166"/><circle r="22" fill="none" stroke="#b8860b" stroke-width="3"/><text y="9" text-anchor="middle" font-size="26" font-weight="800" fill="#8a6500">R$</text></g>`)];
+(function(){let i=0,t;const S=$('#slides'),Dt=$('#dots');S.innerHTML=SLIDES.map((s,k)=>`<div class="sl${k?'':' on'}">${s}</div>`).join('');Dt.innerHTML=SLIDES.map((_,k)=>`<i data-k="${k}"${k?'':' class="on"'}></i>`).join('');
+const go=n=>{i=(n+SLIDES.length)%SLIDES.length;[...S.children].forEach((e,k)=>e.classList.toggle('on',k===i));[...Dt.children].forEach((e,k)=>e.classList.toggle('on',k===i));clearInterval(t);t=setInterval(()=>go(i+1),5500)};
+$('#pv').onclick=()=>go(i-1);$('#nx').onclick=()=>go(i+1);Dt.onclick=e=>e.target.dataset.k&&go(+e.target.dataset.k);go(0)})();
+/* ---------- importação ---------- */
+const iso=n=>new Date(Date.UTC(1899,11,30)+Math.floor(n)*864e5).toISOString().slice(0,10);
+const dt=v=>typeof v==='number'?iso(v):typeof v==='string'&&/^\d\d\/\d\d\/\d{4}/.test(v)?v.slice(0,10).split('/').reverse().join('-'):'';
+function parseWB(wb){const rows=[],emps={};let ref='';
+ wb.SheetNames.forEach(sn=>{const a=XLSX.utils.sheet_to_json(wb.Sheets[sn],{header:1,raw:true,defval:null}),hi=a.findIndex(r=>r.some(v=>v==='$ Previsto'||v==='$ Parcela')&&r.includes('Status'));if(hi<0)return;
+  const H={};a[hi].forEach((v,i)=>{if(typeof v==='string')H[v.trim().toLowerCase()]=i});let emp={cnpj:sn,nome:sn};
+  for(let i=0;i<hi;i++)for(const v of a[i]){if(typeof v!=='string')continue;let m=v.match(/(\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2})\s*-\s*(.+)/);if(m)emp={cnpj:m[1],nome:m[2].trim()};m=v.match(/Emitido em:\s*(\d\d)\/(\d\d)\/(\d{4})/);if(m)ref=`${m[3]}-${m[2]}-${m[1]}`}
+  emps[emp.cnpj]=emp;let venc='',cnpj='',cli='',pend=false;
+  for(let i=hi+1;i<a.length;i++){const r=a[i],x=r[0],g=k=>r[H[k.toLowerCase()]],l=g('#Lanç.'),st=g('Status');
+   if(typeof x==='number'&&x>30000&&x<80000&&typeof l!=='number'){venc=iso(x);continue}
+   if(typeof x==='string'&&CN.test(x.trim())){cnpj=x.trim();pend=true;continue}
+   if(typeof l==='number'&&st){const n=k=>+g(k)||0,s=k=>g(k)==null?'':String(g(k)).trim(),tr=s('Tipo Rec.'),bm=tr.match(/^(Boleto)(.+)$/);
+    rows.push({emp:emp.cnpj,cnpj:s('CPF/CNPJ')||cnpj,cli:s('Entidade')||cli,venc:dt(g('Dt. Vcto.'))||venc,lanc:l,parc:s('Parc.'),st,tc:s('Tipo Contábil'),tr:bm?bm[1]:tr,bco:bm?bm[2].trim():s('C/C'),vend:s('Vendedor(es)'),obs:s('Observação'),doc:(s('Tipo Doc')+' '+s('Doc')).trim(),emi:dt(g('Dt. Emissão')),dtrec:dt(g('Dt. Rec.')),prev:n('$ Parcela')||n('$ Previsto'),desc:n('Desconto'),rec:n('$ Recebido'),jur:n('$Juros'),mul:n('$Multa'),cor:n('$Cor.')});continue}
+   if(pend&&typeof x==='string'&&x.trim()&&x.trim()!=='Vencimento:'){cli=x.trim();pend=false}}});
+ return{rows,emps,ref}}
+async function handle(files){try{let R=[],E={},ref='';
+ for(const f of files){const o=parseWB(XLSX.read(new Uint8Array(await f.arrayBuffer()),{type:'array'}));R=R.concat(o.rows);Object.assign(E,o.emps);if(o.ref>ref)ref=o.ref}
+ if(!R.length)return toast('Não encontrei títulos neste arquivo. Use o relatório FLUXIS “Recebimentos por Período”.');
+ ref=ref||new Date().toISOString().slice(0,10);
+ const kc={};R.forEach((r,i)=>{r.id=i;let k=[r.emp,r.lanc,r.parc].join('|');kc[k]=(kc[k]||0)+1;r.key=kc[k]>1?k+'#'+kc[k]:k;r.vend=r.vend||'Sem vendedor';r.bco=r.bco||'Sem banco';r.hay=[r.cli,r.cnpj,r.doc,r.lanc,r.obs,r.vend,r.bco,r.tr].join(' ').toLowerCase();r.rcv=r.st==='Fechado'||r.rec>0;r.od=!r.rcv&&r.venc<ref;r.sit=r.rcv?'Recebido':r.od?'Vencido':'A vencer';r.val=r.rcv?r.rec:r.prev});
+ D={rows:R,emps:Object.values(E),ref,file:[...files].map(f=>f.name).join(', ')};sel='ALL';VW='all';resetFL();fillEmp();fillOpts();render();const hit=SEL.size,miss=SELK.size-hit;toast(`${R.length} títulos importados`+(SELK.size?` · ${hit} marcado${hit===1?'':'s'} mantido${hit===1?'':'s'}`+(miss?` · ${miss} não encontrado${miss===1?'':'s'} na nova planilha`:''):''))}catch(e){console.error(e);toast('Falha ao ler a planilha.')}}
+const fi=$('#fi');$('#bImp').onclick=$('#bImp2').onclick=()=>fi.click();fi.onchange=()=>{fi.files.length&&handle(fi.files);fi.value=''};
+addEventListener('dragover',e=>{e.preventDefault();document.body.classList.add('drag')});addEventListener('dragleave',e=>{if(!e.relatedTarget)document.body.classList.remove('drag')});
+addEventListener('drop',e=>{e.preventDefault();document.body.classList.remove('drag');e.dataTransfer.files.length&&handle(e.dataTransfer.files)});
+/* ---------- métricas ---------- */
+const empOf=c=>D.emps.find(e=>e.cnpj===c)||{nome:c,cnpj:c},scope=()=>sel==='ALL'?D.rows:D.rows.filter(r=>r.emp===sel);
+const STF={'Recebido (quitado)':r=>r.rcv,'Quitado em dia':r=>r.rcv&&r.dtrec<=r.venc,'Quitado em atraso':r=>r.rcv&&r.dtrec>r.venc,'Em aberto':r=>!r.rcv,'A vencer':r=>r.sit==='A vencer','Vencido':r=>r.sit==='Vencido'};
+const FL={q:'',st:null,de:'',ate:'',qde:'',qate:'',tr:null,tc:null,vd:null,bc:null},MSK=['st','tr','tc','vd','bc'],OPT={},FS=[['tr','Todas as formas',r=>r.tr],['tc','Todos os tipos contábeis',r=>r.tc],['vd','Todos os vendedores',r=>r.vend],['bc','Todos os bancos / C/C',r=>r.bco]];
+const F=()=>{const q=FL.q.trim().toLowerCase();return scope().filter(r=>(FL.st===null||FL.st.some(s=>STF[s](r)))&&(!FL.de||r.venc>=FL.de)&&(!FL.ate||r.venc<=FL.ate)&&(!FL.qde||(r.rcv&&r.dtrec>=FL.qde))&&(!FL.qate||(r.rcv&&r.dtrec<=FL.qate))&&(FL.tr===null||FL.tr.includes(r.tr))&&(FL.tc===null||FL.tc.includes(r.tc))&&(FL.vd===null||FL.vd.includes(r.vend))&&(FL.bc===null||FL.bc.includes(r.bco))&&(!q||r.hay.includes(q)))};
+function resetFL(){Object.keys(FL).forEach(k=>FL[k]=MSK.includes(k)?null:'');['q','de','ate','qde','qate'].forEach(k=>$('#f_'+k).value='')}
+const msLabel=k=>{const a=FL[k];return a===null?'Todos':a.length===0?'Nenhum':a.length===1?a[0]:a.length+' selecionados'};
+function renderMS(k){const e=$('#f_'+k),o=OPT[k]||[],a=FL[k],op=!!e.querySelector('.mp:not([hidden])');e.innerHTML=`<button type="button" class="msb" data-ms="${k}"><span>${esc(msLabel(k))}</span><span>▾</span></button><div class="mp"${op?'':' hidden'}><div class="ma"><button type="button" data-all="${k}">Marcar todas</button><button type="button" data-none="${k}">Desmarcar todas</button></div>${o.map(v=>`<label><input type="checkbox" data-k="${k}" value="${esc(v)}"${a===null||a.includes(v)?' checked':''}>${esc(v)}</label>`).join('')}</div>`}
+function fillOpts(){const R=scope();OPT.st=Object.keys(STF);FS.forEach(([k,l,f])=>{OPT[k]=[...new Set(R.map(f))].sort()});MSK.forEach(k=>{let a=FL[k];if(a){a=a.filter(v=>OPT[k].includes(v));FL[k]=a.length===OPT[k].length?null:a}renderMS(k)})}
+const filtroTxt=()=>{const t=[];if(sel!=='ALL')t.push('Empresa: '+empOf(sel).nome);if(FL.st)t.push('Situação: '+(FL.st.join(', ')||'nenhuma'));if(FL.de||FL.ate)t.push(('Vencimento '+(FL.de?'de '+dBR(FL.de):'')+' '+(FL.ate?'até '+dBR(FL.ate):'')).replace(/\s+/g,' ').trim());if(FL.qde||FL.qate)t.push(('Quitação '+(FL.qde?'de '+dBR(FL.qde):'')+' '+(FL.qate?'até '+dBR(FL.qate):'')).replace(/\s+/g,' ').trim());[['tr','Forma'],['tc','Tipo contábil'],['vd','Vendedor'],['bc','Banco/C/C']].forEach(([k,l])=>FL[k]&&t.push(l+': '+(FL[k].join(', ')||'nenhum')));if(FL.q.trim())t.push('Busca “'+FL.q.trim()+'”');return t.length?t.join(' · '):'nenhum (todos os títulos)'};
+function fillEmp(){const e=$('#f_emp');e.innerHTML='<option value="ALL">Todas as empresas</option>'+D.emps.map(x=>`<option value="${esc(x.cnpj)}">${esc(x.nome)}</option>`).join('');e.value=sel}
+$('#fbar').addEventListener('input',e=>{const k=e.target.id.slice(2);if(k==='emp'){sel=e.target.value;fillOpts();if(D)render();return}if(k in FL){FL[k]=e.target.value;if(D)render()}});
+$('#fclr').onclick=()=>{resetFL();if(D){sel='ALL';fillEmp();fillOpts();render()}};
+$('#fbar').addEventListener('click',e=>{const t=e.target,b=t.closest('[data-ms]'),A=t.closest('[data-all]'),N=t.closest('[data-none]');
+ if(b){const p=b.nextElementSibling,w=p.hidden;document.querySelectorAll('.mp').forEach(x=>x.hidden=true);p.hidden=!w;return}
+ if(A){FL[A.dataset.all]=null;renderMS(A.dataset.all);if(D)render();return}
+ if(N){FL[N.dataset.none]=[];renderMS(N.dataset.none);if(D)render();return}
+ if(t.matches('input[data-k]')){const k=t.dataset.k,o=OPT[k];let a=FL[k]===null?o.slice():FL[k].slice();a=t.checked?[...new Set([...a,t.value])]:a.filter(v=>v!==t.value);FL[k]=a.length===o.length?null:a;renderMS(k);if(D)render()}});
+document.addEventListener('click',e=>{if(!e.composedPath().some(n=>n.classList&&n.classList.contains('ms')))document.querySelectorAll('.mp').forEach(x=>x.hidden=true)});
+const agg=r=>{const o={n:r.length,prev:0,rec:0,abr:0,od:0,av:0,cor:0,dsc:0,tot:0,nr:0,cl:new Set};r.forEach(x=>{o.prev+=x.prev;o.tot+=x.val;o.cor+=x.cor+x.jur+x.mul;o.dsc+=x.desc;o.cl.add(x.cnpj);if(x.rcv){o.rec+=x.rec;o.nr++}else{o.abr+=x.prev;x.od?o.od+=x.prev:o.av+=x.prev}});o.pct=o.tot?o.rec/o.tot:0;return o};
+const gb=(r,f)=>{const m={};r.forEach(x=>{const k=f(x)||'—';(m[k]=m[k]||[]).push(x)});return m};
+const hb=(it,c)=>{const mx=Math.max(...it.map(i=>i[1]),1);return`<div class="hb">${it.map(i=>`<div class="l" title="${esc(i[0])}">${esc(i[0])}</div><div class="t"><i style="width:${i[1]/mx*100}%;--c:${c}"></i></div><div class="v">${brl(i[1])}</div>`).join('')}</div>`};
+/* ---------- render ---------- */
+function render(){$('#land').hidden=!!D;$('#dash').hidden=!D;$('#bPdf').disabled=$('#bXls').disabled=!D;if(!D)return;
+ const R=F(),m=agg(R),vs=R.map(r=>r.venc).sort();
+ $('#ttl').textContent=sel==='ALL'?'Consolidado do grupo':empOf(sel).nome;
+ $('#sub').textContent=`Data-base ${dBR(D.ref)} · vencimentos de ${dBR(vs[0])} a ${dBR(vs[vs.length-1])} · ${D.file}`;
+ $('#fcount').textContent=`${R.length} de ${scope().length} títulos · filtros ativos: ${filtroTxt()}`;
+ $('#tabs').innerHTML=[['ALL','Consolidado']].concat(D.emps.map(e=>[e.cnpj,e.nome])).map(t=>`<button class="tab${t[0]===sel?' on':''}" data-k="${esc(t[0])}">${esc(t[1])}</button>`).join('');
+ const K=(l,v,s,c)=>`<div class="k" style="--c:${c}"><label>${l}</label><strong>${v}</strong><span>${s}</span></div>`;
+ $('#kpis').innerHTML=K('Total previsto',brl(m.tot),`${m.n} títulos · recebido + a receber`,'var(--nv)')+K('Recebido',brl(m.rec),`${m.nr} títulos · ${pc(m.pct)} do previsto`,'var(--ok)')+K('A receber',brl(m.abr),`${m.n-m.nr} títulos em aberto`,'var(--in)')+K('Em atraso',brl(m.od),`${pc(m.abr?m.od/m.abr:0)} do saldo em aberto`,'var(--er)')+K('A vencer',brl(m.av),'após a data-base','var(--wa)')+K('Taxa de realização',pc(m.pct),'recebido ÷ total previsto','var(--pr)')+K('Clientes',m.cl.size,`ticket médio ${brl(m.n?m.tot/m.n:0)}`,'var(--pr)')+K('Juros, multa e correção',brl(m.cor),`descontos concedidos ${brl(m.dsc)}`,'var(--mu)');
+ const mo=gb(R,r=>r.venc.slice(0,7)),ks=Object.keys(mo).sort(),mm=ks.map(k=>({k,...(()=>{const o={rec:0,od:0,av:0};mo[k].forEach(x=>{x.rcv?o.rec+=x.rec:x.od?o.od+=x.prev:o.av+=x.prev});return o})()})),mx=Math.max(...mm.map(x=>x.rec+x.od+x.av),1);
+ const bar=(v,c)=>`<div style="height:${v/mx*165}px;background:${c}" title="${brl(v)}"></div>`;
+ const by=f=>Object.entries(gb(R,f)).map(([k,v])=>[k,v.reduce((s,x)=>s+x.val,0)]).sort((a,b)=>b[1]-a[1]);
+ const tp=Object.entries(gb(R.filter(r=>!r.rcv),r=>r.cli)).map(([k,v])=>[k,v.reduce((s,x)=>s+x.prev,0)]).sort((a,b)=>b[1]-a[1]).slice(0,8);
+ $('#chs').innerHTML=`<div class="card"><h3>Vencimentos por mês</h3><div class="mc">${mm.map(x=>`<div class="c"><b style="color:var(--tx)">${cmp(x.rec+x.od+x.av)}</b><div class="b">${bar(x.rec,'var(--ok)')}${bar(x.od,'var(--er)')}${bar(x.av,'var(--in)')}</div>${MS[+x.k.slice(5)-1]}/${x.k.slice(2,4)}</div>`).join('')}</div><div class="lg"><span><i style="background:var(--ok)"></i>Recebido</span><span><i style="background:var(--er)"></i>Vencido</span><span><i style="background:var(--in)"></i>A vencer</span></div></div>
+ <div class="card"><h3>Maiores saldos a receber por cliente</h3>${hb(tp,'var(--in)')}</div>
+ <div class="card"><h3>Previsto por forma de recebimento</h3>${hb(by(r=>r.tr),'var(--pr)')}</div>
+ <div class="card"><h3>Previsto por tipo contábil</h3>${hb(by(r=>r.tc),'var(--nv)')}</div>`;
+ $('#empsec').innerHTML=sel==='ALL'?`<h3 style="margin:6px 0 12px">Resumo por empresa</h3><div class="emps">${D.emps.filter(e=>R.some(r=>r.emp===e.cnpj)).map(e=>{const a=agg(R.filter(r=>r.emp===e.cnpj));return`<div class="card emp" data-k="${esc(e.cnpj)}"><h4>${esc(e.nome)}</h4><div class="mu">${esc(e.cnpj)}</div><div class="pg"><i style="width:${a.pct*100}%"></i></div><div class="er"><span>Previsto</span><b>${brl(a.tot)}</b></div><div class="er"><span>Recebido (${pc(a.pct)})</span><b style="color:var(--ok)">${brl(a.rec)}</b></div><div class="er"><span>A receber</span><b style="color:var(--in)">${brl(a.abr)}</b></div><div class="er"><span>Em atraso</span><b style="color:var(--er)">${brl(a.od)}</b></div><div class="er"><span>Títulos · Clientes</span><b>${a.n} · ${a.cl.size}</b></div></div>`}).join('')}</div>`:'';
+ table()}
+const SELK=new Set();let LST=[],VW='all';
+try{JSON.parse(localStorage.getItem('lm-sel')||'[]').forEach(k=>SELK.add(k))}catch(e){}
+const persist=()=>{try{localStorage.setItem('lm-sel',JSON.stringify([...SELK]))}catch(e){}};
+/* seleção por chave estável (empresa|lançamento|parcela): sobrevive a nova importação e a recarregar a página */
+const SEL={has:id=>SELK.has(D.rows[id].key),add:id=>{SELK.add(D.rows[id].key);persist()},delete:id=>{SELK.delete(D.rows[id].key);persist()},clear:()=>{SELK.clear();persist()},get size(){return D?D.rows.reduce((n,r)=>n+(SELK.has(r.key)?1:0),0):0}};
+const ORD=(a,b)=>a.venc.localeCompare(b.venc)||a.cli.localeCompare(b.cli);
+/* títulos marcados: sempre a seleção completa, independente de filtros, empresa ou exibição */
+const selRows=()=>D?D.rows.filter(r=>SELK.has(r.key)).sort(ORD):[];
+function syncSel(){const n=SEL.size,vis=LST.filter(r=>SEL.has(r.id)).length,c=$('#ckAll');
+ $('#selN').textContent=n?`${n} marcado${n>1?'s':''}${VW==='all'&&vis<n?` · ${vis} ${vis===1?'visível':'visíveis'} neste filtro`:''}`:'Nenhum título marcado';const ms=SELK.size-n;if(ms>0)$('#selN').textContent+=` · ${ms} marcado${ms>1?'s':''} anterior${ms>1?'es':''} ausente${ms>1?'s':''} da planilha atual`;
+ $('#vwN').textContent=n;$('#vw').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.v===VW));
+ const vn=$('#vnote');vn.hidden=VW!=='sel';vn.textContent=VW==='sel'?'Exibindo todos os títulos marcados, de todas as empresas, independentemente dos filtros. Desmarque aqui para retirar da relação; as linhas desmarcadas saem da lista ao trocar de exibição.':'';
+ $('#selClr').disabled=!SELK.size;$('#sPdf').disabled=$('#sXls').disabled=!n;
+ c.checked=LST.length>0&&vis===LST.length;c.indeterminate=vis>0&&vis<LST.length}
+function table(){if(VW==='sel'&&!SEL.size)VW='all';
+ const R=(VW==='sel'?D.rows.filter(r=>SEL.has(r.id)):F()).slice().sort(ORD);LST=R;
+ $('#tb').innerHTML=R.map(r=>{const on=SEL.has(r.id);return`<tr${on?' class="sel"':''}><td class="ck"><input type="checkbox" data-id="${r.id}"${on?' checked':''} aria-label="Selecionar ${esc(r.cli)}"></td><td>${dBR(r.emi)}</td><td>${dBR(r.venc)}</td><td title="${esc(r.cnpj)}">${esc(r.cli)}</td><td class="r">${brl(r.prev)}</td><td><span class="ch s${['Recebido','Vencido','A vencer'].indexOf(r.sit)}">${r.sit}</span></td><td>${esc(r.doc||'—')}</td><td>${esc(r.parc)}</td><td>${esc(r.tr)}</td><td>${esc(r.tc)}</td><td>${esc(r.vend)}</td><td class="r">${r.rcv?brl(r.rec):'—'}</td><td>${dBR(r.dtrec)}</td></tr>`}).join('');
+ $('#tf').textContent=`${R.length} títulos${VW==='sel'?' marcados':''} · total previsto ${brl(R.reduce((s,r)=>s+r.val,0))} = recebido ${brl(R.reduce((s,r)=>s+(r.rcv?r.rec:0),0))} + a receber ${brl(R.reduce((s,r)=>s+(r.rcv?0:r.prev),0))}`;syncSel()}
+$('#vw').addEventListener('click',e=>{const b=e.target.closest('button[data-v]');if(!b||!D)return;if(b.dataset.v==='sel'&&!SEL.size)return toast('Nenhum título marcado ainda.');VW=b.dataset.v;table()});
+$('#tb').addEventListener('change',e=>{const c=e.target.closest('input[data-id]');if(!c)return;const id=+c.dataset.id;c.checked?SEL.add(id):SEL.delete(id);c.closest('tr').classList.toggle('sel',c.checked);syncSel()});
+$('#ckAll').onchange=e=>{const on=e.target.checked;LST.forEach(r=>on?SEL.add(r.id):SEL.delete(r.id));document.querySelectorAll('#tb input[data-id]').forEach(c=>{c.checked=on;c.closest('tr').classList.toggle('sel',on)});syncSel()};
+$('#selClr').onclick=()=>{SEL.clear();VW='all';table()};
+document.addEventListener('click',e=>{const t=e.target.closest('[data-k]');if(t&&D&&(t.classList.contains('tab')||t.classList.contains('emp'))){sel=t.dataset.k;$('#f_emp').value=sel;fillOpts();render();scrollTo({top:0,behavior:'smooth'})}});
+/* ---------- salvar ---------- */
+async function save(n,b){try{if(window.claude&&claude.use){const d=await claude.use('downloads');if(d){await d.save({filename:n,data:b});return toast('Arquivo salvo')}}}catch(e){if(e&&e.code==='declined')return}
+ const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;a.click()}
+/* ---------- PDF ---------- */
+let pdfB=null,pdfN='Recebiveis_Labmedic.pdf';
+function mkPDF(){const{jsPDF}=window.jspdf,d=new jsPDF({orientation:'landscape',unit:'mm',format:'a4'}),W=297,R=F().slice().sort((a,b)=>a.venc.localeCompare(b.venc)||a.cli.localeCompare(b.cli)),m=agg(R),nome=sel==='ALL'?'Consolidado do grupo':empOf(sel).nome,P=n=>brl(n).replace(/\u00a0/g,' ');
+ d.setFillColor(11,61,107);d.rect(0,0,W,26,'F');d.setFillColor(10,124,134);d.rect(0,26,W,1.6,'F');d.setTextColor(255);d.setFont('helvetica','bold');d.setFontSize(18);d.text('GRUPO LABMEDIC',14,12);d.setFont('helvetica','normal');d.setFontSize(11);d.text('Periódico de Recebíveis',14,19.5);d.setFontSize(9);d.text('Data-base: '+dBR(D.ref),W-14,12,{align:'right'});d.text(nome,W-14,19.5,{align:'right'});
+ const ks=[['Total previsto',P(m.tot)],['Recebido',P(m.rec)],['A receber',P(m.abr)],['Em atraso',P(m.od)],['A vencer',P(m.av)],['Realização',pc(m.pct)]],bw=(W-28-20)/6;
+ ks.forEach((k,i)=>{const x=14+i*(bw+4);d.setDrawColor(210,222,234);d.setFillColor(245,249,252);d.roundedRect(x,33,bw,18,2,2,'FD');d.setFont('helvetica','normal');d.setFontSize(7);d.setTextColor(95,110,128);d.text(k[0].toUpperCase(),x+3,39);d.setFont('helvetica','bold');d.setFontSize(11.5);d.setTextColor(11,61,107);d.text(k[1],x+3,47)});
+ const hd={fillColor:[11,61,107],textColor:255,fontSize:8,halign:'left'},base={margin:{left:14,right:14,bottom:16},styles:{fontSize:8,cellPadding:1.8,textColor:[30,40,55]},headStyles:hd,alternateRowStyles:{fillColor:[245,249,252]}};
+ const sec=(t,y)=>{d.setFont('helvetica','bold');d.setFontSize(10);d.setTextColor(11,61,107);d.text(t,14,y)};d.setFont('helvetica','italic');d.setFontSize(7.5);d.setTextColor(95,110,128);const ft=d.splitTextToSize('Filtros aplicados: '+filtroTxt()+' · '+R.length+' títulos',W-28);d.text(ft,14,56);let y=62+(ft.length-1)*3.2;
+ if(sel==='ALL'&&D.emps.length>1){sec('Resumo por empresa',y);d.autoTable({...base,startY:y+2,head:[['Empresa','CNPJ','Títulos','Previsto','Recebido','A receber','Em atraso','Realização']],body:D.emps.filter(e=>R.some(r=>r.emp===e.cnpj)).map(e=>{const a=agg(R.filter(r=>r.emp===e.cnpj));return[e.nome,e.cnpj,a.n,P(a.tot),P(a.rec),P(a.abr),P(a.od),pc(a.pct)]}),columnStyles:{2:{halign:'right'},3:{halign:'right'},4:{halign:'right'},5:{halign:'right'},6:{halign:'right'},7:{halign:'right'}}});y=d.lastAutoTable.finalY+8}
+ const mo=gb(R,r=>r.venc.slice(0,7));sec('Posição por mês de vencimento',y);
+ d.autoTable({...base,startY:y+2,head:[['Mês','Títulos','Previsto','Recebido','A receber','Em atraso','Realização']],body:Object.keys(mo).sort().map(k=>{const a=agg(mo[k]);return[MS[+k.slice(5)-1]+'/'+k.slice(0,4),a.n,P(a.tot),P(a.rec),P(a.abr),P(a.od),pc(a.pct)]}),columnStyles:{1:{halign:'right'},2:{halign:'right'},3:{halign:'right'},4:{halign:'right'},5:{halign:'right'},6:{halign:'right'}}});
+ d.addPage();sec('Títulos – detalhamento',16);
+ d.autoTable({...base,startY:19,head:[['Emissão','Venc.','Cliente','Previsto','Situação','Documento','Parc.','Forma','Tipo contábil','Recebido','Quitação']],body:R.map(r=>[dBR(r.emi),dBR(r.venc),r.cli,P(r.prev),r.sit,r.doc||'—',r.parc,r.tr,r.tc,r.rcv?P(r.rec):'—',dBR(r.dtrec)]),foot:[['','','TOTAL',P(m.prev),'','','','','',P(m.rec),'']],footStyles:{fillColor:[11,61,107],textColor:255,fontStyle:'bold'},showFoot:'lastPage',
+  columnStyles:{0:{cellWidth:19},1:{cellWidth:19},2:{cellWidth:56},3:{halign:'right'},4:{fontStyle:'bold'},9:{halign:'right'}},
+  didParseCell:h=>{if(h.section==='body'&&h.column.index===4){h.cell.styles.textColor=h.cell.raw==='Recebido'?[19,154,99]:h.cell.raw==='Vencido'?[214,69,69]:[43,108,212]}}});
+ const N=d.getNumberOfPages();for(let i=1;i<=N;i++){d.setPage(i);d.setDrawColor(210,222,234);d.line(14,201,W-14,201);d.setFont('helvetica','normal');d.setFontSize(7.5);d.setTextColor(120,130,145);d.text('Grupo Labmedic · Periódico de Recebíveis · '+nome,14,205);d.text(`Página ${i} de ${N}`,W-14,205,{align:'right'})}
+ return d.output('blob')}
+$('#bPdf').onclick=()=>{if(!F().length)return toast('Nenhum título com os filtros atuais.');try{pdfN='Recebiveis_Labmedic.pdf';$('#pdfT').textContent='Pré-visualização do PDF · A4 horizontal';pdfB=mkPDF();$('#pdfF').src=URL.createObjectURL(pdfB);$('#pdfm').hidden=false}catch(e){console.error(e);toast('Não foi possível gerar o PDF.')}};
+$('#pdfX').onclick=()=>{$('#pdfm').hidden=true;$('#pdfF').src='about:blank'};$('#pdfDl').onclick=()=>save(pdfN,pdfB);
+/* ---------- Excel ---------- */
+const COLS=[['Emissão',12],['Vencimento',12],['Cliente',44],['Previsto',15],['Situação',12],['Empresa',28],['CNPJ/CPF cliente',19],['Documento',14],['Lanç.',8],['Parcela',9],['Forma',13],['Banco / C/C',24],['Tipo contábil',25],['Vendedor',26],['Desconto',11],['Juros',11],['Multa',11],['Correção',13],['Recebido',15],['Data de quitação',15],['Saldo a receber',15],['Observação',44]];
+const GT={4:r=>r.prev,15:r=>r.desc,16:r=>r.jur,17:r=>r.mul,18:r=>r.cor,19:r=>r.rcv?r.rec:0,21:r=>r.rcv?0:r.prev};
+const D8=i=>i?new Date(i+'T00:00:00Z'):null,NAV='FF0B3D6B',TEAL='FF0A7C86',FM='#,##0.00;[Red]-#,##0.00;"-"';
+function sheetT(wb,name,rows,titulo){const ws=wb.addWorksheet(name,{views:[{state:'frozen',ySplit:4,showGridLines:false}]}),L=COLS.length;
+ ws.columns=COLS.map(c=>({width:c[1]}));ws.mergeCells(1,1,1,L);ws.mergeCells(2,1,2,L);
+ const a=ws.getCell('A1');a.value='GRUPO LABMEDIC · Periódico de Recebíveis';a.font={name:'Arial',size:16,bold:true,color:{argb:'FFFFFFFF'}};a.fill={type:'pattern',pattern:'solid',fgColor:{argb:NAV}};a.alignment={vertical:'middle',indent:1};ws.getRow(1).height=30;
+ const b=ws.getCell('A2');b.value=`${titulo} · data-base ${dBR(D.ref)} · ${rows.length} títulos · Filtros: ${filtroTxt()}`;b.font={name:'Arial',size:10,color:{argb:'FFFFFFFF'}};b.fill={type:'pattern',pattern:'solid',fgColor:{argb:TEAL}};b.alignment={indent:1};
+ const h=ws.getRow(4);COLS.forEach((c,i)=>{const x=h.getCell(i+1);x.value=c[0];x.font={name:'Arial',bold:true,color:{argb:'FFFFFFFF'},size:10};x.fill={type:'pattern',pattern:'solid',fgColor:{argb:NAV}};x.alignment={vertical:'middle',horizontal:i===3||(i>=14&&i<=18)||i===20?'right':'left',wrapText:true};x.border={bottom:{style:'medium',color:{argb:TEAL}}}});h.height=24;
+ rows.forEach((r,i)=>{const n=5+i,row=ws.getRow(n),sd=r.rcv?0:r.prev;row.values=[D8(r.emi),D8(r.venc),r.cli,r.prev,r.sit,empOf(r.emp).nome,r.cnpj,r.doc||'',r.lanc,r.parc,r.tr,r.bco,r.tc,r.vend,r.desc,r.jur,r.mul,r.cor,r.rcv?r.rec:0,D8(r.dtrec),{formula:`IF(E${n}="Recebido",0,D${n})`,result:sd},r.obs];
+  row.eachCell({includeEmpty:true},(c,j)=>{c.font={name:'Arial',size:10};c.border={bottom:{style:'thin',color:{argb:'FFE0E8F0'}}};if(i%2)c.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFF4F8FB'}};if([1,2,20].includes(j))c.numFmt='dd/mm/yyyy';if(j===4||(j>=15&&j<=19)||j===21)c.numFmt=FM});
+  const s=row.getCell(5);s.font={name:'Arial',size:10,bold:true,color:{argb:r.sit==='Recebido'?'FF0E7A4C':r.sit==='Vencido'?'FFC0392B':'FF1F5FBF'}};s.alignment={horizontal:'center'}});
+ const t=5+rows.length,tr=ws.getRow(t);tr.getCell(3).value='TOTAL';[4,15,16,17,18,19,21].forEach(j=>{const col=ws.getColumn(j).letter,v=rows.reduce((s,r)=>s+GT[j](r),0);tr.getCell(j).value={formula:`SUBTOTAL(109,${col}5:${col}${t-1})`,result:v};tr.getCell(j).numFmt=FM});
+ tr.eachCell({includeEmpty:true},c=>{c.font={name:'Arial',bold:true,size:10,color:{argb:'FFFFFFFF'}};c.fill={type:'pattern',pattern:'solid',fgColor:{argb:NAV}}});for(let j=1;j<=L;j++){tr.getCell(j).font={name:'Arial',bold:true,size:10,color:{argb:'FFFFFFFF'}};tr.getCell(j).fill={type:'pattern',pattern:'solid',fgColor:{argb:NAV}}}
+ ws.autoFilter={from:{row:4,column:1},to:{row:Math.max(4+rows.length,5),column:L}};ws.pageSetup={orientation:'landscape',paperSize:9,fitToPage:true,fitToWidth:1,fitToHeight:0};ws.headerFooter={oddFooter:'&L&"Arial"Grupo Labmedic · Periódico de Recebíveis&RPágina &P de &N'}}
+async function mkXLSX(){const wb=new ExcelJS.Workbook();wb.creator='Grupo Labmedic';wb.created=new Date();
+ const all=F().slice().sort((a,b)=>a.emp.localeCompare(b.emp)||a.venc.localeCompare(b.venc)||a.cli.localeCompare(b.cli)),rs=wb.addWorksheet('Resumo',{views:[{showGridLines:false}]});
+ sheetT(wb,'Títulos',all,sel==='ALL'?'Todas as empresas':empOf(sel).nome);const n=all.length+4,EM=D.emps.filter(e=>all.some(r=>r.emp===e.cnpj));
+ if(EM.length>1){const used=new Set(['Resumo','Títulos']);EM.forEach(e=>{let nm=e.nome.replace(/[\[\]:*?\/\\]/g,'').slice(0,28);while(used.has(nm))nm=nm.slice(0,26)+'_2';used.add(nm);sheetT(wb,nm,all.filter(r=>r.emp===e.cnpj),e.nome)})}
+ rs.columns=[{width:46},{width:10},{width:17},{width:17},{width:17},{width:17},{width:14}];rs.mergeCells('A1:G1');const t=rs.getCell('A1');t.value='GRUPO LABMEDIC · Resumo de Recebíveis por Empresa';t.font={name:'Arial',size:16,bold:true,color:{argb:'FFFFFFFF'}};t.fill={type:'pattern',pattern:'solid',fgColor:{argb:NAV}};t.alignment={vertical:'middle',indent:1};rs.getRow(1).height=30;
+ rs.mergeCells('A2:G2');const s2=rs.getCell('A2');s2.value=`Data-base ${dBR(D.ref)} · valores calculados a partir da aba “Títulos” · Previsto = Recebido + A receber · Filtros: ${filtroTxt()}`;s2.font={name:'Arial',size:10,color:{argb:'FFFFFFFF'}};s2.fill={type:'pattern',pattern:'solid',fgColor:{argb:TEAL}};s2.alignment={indent:1};
+ const hd=rs.getRow(4);['Empresa','Títulos','Previsto','Recebido','A receber','Em atraso','% realizado'].forEach((x,i)=>{const c=hd.getCell(i+1);c.value=x;c.font={name:'Arial',bold:true,color:{argb:'FFFFFFFF'}};c.fill={type:'pattern',pattern:'solid',fgColor:{argb:NAV}};c.alignment={horizontal:i?'right':'left'}});
+ const T="'Títulos'!";EM.forEach((e,i)=>{const r=5+i,a=agg(all.filter(x=>x.emp===e.cnpj)),row=rs.getRow(r),A=`${T}$F$5:$F$${n}`;
+  row.values=[e.nome,{formula:`COUNTIF(${A},A${r})`,result:a.n},{formula:`D${r}+E${r}`,result:a.tot},{formula:`SUMIFS(${T}$S$5:$S$${n},${A},A${r})`,result:a.rec},{formula:`SUMIFS(${T}$U$5:$U$${n},${A},A${r})`,result:a.abr},{formula:`SUMIFS(${T}$U$5:$U$${n},${A},A${r},${T}$E$5:$E$${n},"Vencido")`,result:a.od},{formula:`IFERROR(D${r}/C${r},0)`,result:a.pct}];
+  row.eachCell(c=>{c.font={name:'Arial',size:10};c.border={bottom:{style:'thin',color:{argb:'FFE0E8F0'}}}});[3,4,5,6].forEach(j=>row.getCell(j).numFmt=FM);row.getCell(7).numFmt='0.0%'});
+ const r=5+EM.length,m=agg(all),tr=rs.getRow(r);tr.values=['TOTAL DO GRUPO',{formula:`SUM(B5:B${r-1})`,result:m.n},{formula:`SUM(C5:C${r-1})`,result:m.tot},{formula:`SUM(D5:D${r-1})`,result:m.rec},{formula:`SUM(E5:E${r-1})`,result:m.abr},{formula:`SUM(F5:F${r-1})`,result:m.od},{formula:`IFERROR(D${r}/C${r},0)`,result:m.pct}];
+ tr.eachCell(c=>{c.font={name:'Arial',bold:true,color:{argb:'FFFFFFFF'}};c.fill={type:'pattern',pattern:'solid',fgColor:{argb:NAV}}});[3,4,5,6].forEach(j=>tr.getCell(j).numFmt=FM);tr.getCell(7).numFmt='0.0%';
+ wb.views=[{activeTab:0}];return new Blob([await wb.xlsx.writeBuffer()],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})}
+$('#bXls').onclick=async()=>{if(!F().length)return toast('Nenhum título com os filtros atuais.');try{toast('Gerando planilha…');save('Recebiveis_Labmedic.xlsx',await mkXLSX())}catch(e){console.error(e);toast('Não foi possível gerar o Excel.')}};
+
+/* ---------- exportação dos títulos selecionados (mesmas colunas do quadro) ---------- */
+const SC=[['Emissão',18,12],['Vencimento',19,12],['Cliente',45,44],['Previsto',24,15],['Situação',19,12],['Documento',22,16],['Parc.',10,8],['Forma',18,13],['Tipo contábil',26,25],['Vendedor',24,26],['Recebido',24,15],['Data de quitação',20,16]];
+const scopeNome=R=>{const e=[...new Set(R.map(r=>r.emp))];return e.length===1?empOf(e[0]).nome:'Várias empresas ('+e.length+')'};
+function mkPDFSel(R){const{jsPDF}=window.jspdf,d=new jsPDF({orientation:'landscape',unit:'mm',format:'a4'}),W=297,m=agg(R),nome=scopeNome(R),multi=new Set(R.map(r=>r.emp)).size>1,P=n=>brl(n).replace(/\u00a0/g,' ');
+ d.setFillColor(11,61,107);d.rect(0,0,W,26,'F');d.setFillColor(10,124,134);d.rect(0,26,W,1.6,'F');d.setTextColor(255);d.setFont('helvetica','bold');d.setFontSize(18);d.text('GRUPO LABMEDIC',14,12);d.setFont('helvetica','normal');d.setFontSize(11);d.text('Periódico de Recebíveis · Títulos selecionados',14,19.5);d.setFontSize(9);d.text('Data-base: '+dBR(D.ref),W-14,12,{align:'right'});d.text(nome,W-14,19.5,{align:'right'});
+ const ks=[['Títulos',String(m.n)],['Clientes',String(m.cl.size)],['Previsto',P(m.prev)],['Recebido',P(m.rec)],['A receber',P(m.abr)],['Em atraso',P(m.od)]],bw=(W-28-20)/6;
+ ks.forEach((k,i)=>{const x=14+i*(bw+4);d.setDrawColor(210,222,234);d.setFillColor(245,249,252);d.roundedRect(x,33,bw,18,2,2,'FD');d.setFont('helvetica','normal');d.setFontSize(7);d.setTextColor(95,110,128);d.text(k[0].toUpperCase(),x+3,39);d.setFont('helvetica','bold');d.setFontSize(11.5);d.setTextColor(11,61,107);d.text(k[1],x+3,47)});
+ d.setFont('helvetica','italic');d.setFontSize(7.5);d.setTextColor(95,110,128);const ft=d.splitTextToSize('Títulos marcados pelo operador · seleção independente dos filtros do painel · '+R.length+' títulos'+(multi?' de '+new Set(R.map(r=>r.emp)).size+' empresas':''),W-28);d.text(ft,14,56);
+ const W2=multi?{2:32,9:20,8:22}:{},EC=multi?[['Empresa',21]]:[],cs=Object.fromEntries(SC.concat(EC).map((c,i)=>[i,{cellWidth:W2[i]||c[1]}]));cs[3].halign=cs[10].halign='right';cs[4].fontStyle='bold';
+ d.autoTable({startY:58+ft.length*3.2,margin:{left:14,right:14,top:20,bottom:16},styles:{fontSize:7.5,cellPadding:1.7,textColor:[30,40,55],overflow:'linebreak'},headStyles:{fillColor:[11,61,107],textColor:255,fontSize:7.5},alternateRowStyles:{fillColor:[245,249,252]},head:[SC.concat(EC).map(c=>c[0])],
+  body:R.map(r=>[dBR(r.emi),dBR(r.venc),r.cli,P(r.prev),r.sit,r.doc||'—',r.parc,r.tr,r.tc,r.vend,r.rcv?P(r.rec):'—',dBR(r.dtrec)].concat(multi?[empOf(r.emp).nome]:[])),
+  foot:[['','','TOTAL ('+R.length+' títulos)',P(m.prev),'','','','','','',P(m.rec),''].concat(multi?['']:[])],footStyles:{fillColor:[11,61,107],textColor:255,fontStyle:'bold'},showFoot:'lastPage',columnStyles:cs,
+  didParseCell:h=>{if(h.section!=='body'&&[3,10].includes(h.column.index))h.cell.styles.halign='right';if(h.section==='body'&&h.column.index===4)h.cell.styles.textColor=h.cell.raw==='Recebido'?[19,154,99]:h.cell.raw==='Vencido'?[214,69,69]:[43,108,212]},
+  didDrawPage:h=>{if(h.pageNumber>1){d.setFillColor(11,61,107);d.rect(0,0,W,12,'F');d.setTextColor(255);d.setFont('helvetica','bold');d.setFontSize(9);d.text('GRUPO LABMEDIC · Títulos selecionados',14,7.5);d.setFont('helvetica','normal');d.text(nome,W-14,7.5,{align:'right'})}}});
+ const N=d.getNumberOfPages();for(let i=1;i<=N;i++){d.setPage(i);d.setDrawColor(210,222,234);d.line(14,201,W-14,201);d.setFont('helvetica','normal');d.setFontSize(7.5);d.setTextColor(120,130,145);d.text('Grupo Labmedic · Periódico de Recebíveis · '+nome+' · emitido em '+new Date().toLocaleDateString('pt-BR'),14,205);d.text(`Página ${i} de ${N}`,W-14,205,{align:'right'})}
+ return d.output('blob')}
+async function mkXLSXSel(R){const wb=new ExcelJS.Workbook();wb.creator='Grupo Labmedic';wb.created=new Date();
+ const multi=new Set(R.map(r=>r.emp)).size>1,CL=multi?SC.concat([['Empresa',28,28]]):SC,ws=wb.addWorksheet('Títulos selecionados',{views:[{state:'frozen',ySplit:4,showGridLines:false}]}),L=CL.length,m=agg(R),fl=c=>({type:'pattern',pattern:'solid',fgColor:{argb:c}});
+ ws.columns=CL.map(c=>({width:c[2]}));ws.mergeCells(1,1,1,L);ws.mergeCells(2,1,2,L);
+ const a=ws.getCell('A1');a.value='GRUPO LABMEDIC · Periódico de Recebíveis';a.font={name:'Arial',size:16,bold:true,color:{argb:'FFFFFFFF'}};a.fill=fl(NAV);a.alignment={vertical:'middle',indent:1};ws.getRow(1).height=30;
+ const b=ws.getCell('A2');b.value=`Títulos marcados · ${scopeNome(R)} · data-base ${dBR(D.ref)} · ${R.length} títulos · ${m.cl.size} clientes`;b.font={name:'Arial',size:10,color:{argb:'FFFFFFFF'}};b.fill=fl(TEAL);b.alignment={indent:1};
+ const h=ws.getRow(4);CL.forEach((c,i)=>{const x=h.getCell(i+1);x.value=c[0];x.font={name:'Arial',bold:true,color:{argb:'FFFFFFFF'},size:10};x.fill=fl(NAV);x.alignment={vertical:'middle',horizontal:i===3||i===10?'right':'left',wrapText:true};x.border={bottom:{style:'medium',color:{argb:TEAL}}}});h.height=24;
+ R.forEach((r,i)=>{const row=ws.getRow(5+i);row.values=[D8(r.emi),D8(r.venc),r.cli,r.prev,r.sit,r.doc||'',r.parc,r.tr,r.tc,r.vend,r.rcv?r.rec:0,D8(r.dtrec)].concat(multi?[empOf(r.emp).nome]:[]);
+  row.eachCell({includeEmpty:true},(c,j)=>{c.font={name:'Arial',size:10};c.border={bottom:{style:'thin',color:{argb:'FFE0E8F0'}}};if(i%2)c.fill=fl('FFF4F8FB');if([1,2,12].includes(j))c.numFmt='dd/mm/yyyy';if(j===4||j===11)c.numFmt=FM});
+  const s=row.getCell(5);s.font={name:'Arial',size:10,bold:true,color:{argb:r.sit==='Recebido'?'FF0E7A4C':r.sit==='Vencido'?'FFC0392B':'FF1F5FBF'}};s.alignment={horizontal:'center'}});
+ const t=5+R.length,tr=ws.getRow(t);for(let j=1;j<=L;j++){const c=tr.getCell(j);c.font={name:'Arial',bold:true,size:10,color:{argb:'FFFFFFFF'}};c.fill=fl(NAV)}
+ tr.getCell(3).value='TOTAL';[[4,m.prev],[11,m.rec]].forEach(([j,v])=>{const col=ws.getColumn(j).letter;tr.getCell(j).value={formula:`SUBTOTAL(109,${col}5:${col}${t-1})`,result:v};tr.getCell(j).numFmt=FM});
+ ws.autoFilter={from:{row:4,column:1},to:{row:Math.max(4+R.length,5),column:L}};ws.pageSetup={orientation:'landscape',paperSize:9,fitToPage:true,fitToWidth:1,fitToHeight:0};ws.headerFooter={oddFooter:'&L&"Arial"Grupo Labmedic · Periódico de Recebíveis&RPágina &P de &N'};
+ return new Blob([await wb.xlsx.writeBuffer()],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})}
+$('#sPdf').onclick=()=>{const R=selRows();if(!R.length)return toast('Selecione ao menos um título.');try{pdfN='Recebiveis_Labmedic_selecionados.pdf';$('#pdfT').textContent='Pré-visualização do PDF · títulos selecionados · A4 horizontal';pdfB=mkPDFSel(R);$('#pdfF').src=URL.createObjectURL(pdfB);$('#pdfm').hidden=false}catch(e){console.error(e);toast('Não foi possível gerar o PDF.')}};
+$('#sXls').onclick=async()=>{const R=selRows();if(!R.length)return toast('Selecione ao menos um título.');try{toast('Gerando planilha…');save('Recebiveis_Labmedic_selecionados.xlsx',await mkXLSXSel(R))}catch(e){console.error(e);toast('Não foi possível gerar o Excel.')}};
+</script>
+</body></html>
